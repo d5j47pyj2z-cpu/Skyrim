@@ -1,24 +1,20 @@
-# Skyrim Alchimie & Cuisine FR
+# Skyrim — Alchimie & Cuisine FR
 
-Application Windows / projet GitHub consacré à l'alchimie et à la cuisine de Skyrim.
+Projet statique prêt pour GitHub Pages et conçu pour téléphone.
 
-## Fonctionnalités
-- Base d'ingrédients en français, avec 4 effets et source.
-- Suivi des ingrédients possédés.
-- Recherche par effet.
-- Générateur de combinaisons de 2 ou 3 ingrédients.
-- Liste des recettes de cuisine vanilla et Hearthfire.
-- Recettes de four et moulin.
-- Suivi des recettes fabriquées.
-- Sauvegarde locale.
-- Compilation en `.exe`.
+## Utilisation
+1. Mets tous les fichiers dans un dépôt GitHub.
+2. Active **Settings → Pages → Deploy from branch**.
+3. Ouvre l'URL GitHub Pages sur l'iPhone.
+4. Le site peut être ajouté à l'écran d'accueil.
 
-## Compilation
-Décompresser le projet, puis lancer `build_exe.bat`.
+## Contenu
+- Interface mobile responsive au style nordique.
+- Alchimie : recherche d'effets et combinaison de 2/3 ingrédients.
+- Inventaire : quantités par ingrédient.
+- Cuisine : recettes filtrables par station et contenu.
+- Collection et progression.
+- Sauvegarde locale du téléphone.
+- PWA avec cache hors-ligne après le premier chargement.
 
-L'EXE est créé dans `dist/SkyrimAlchimieCuisine.exe`.
-
-## Données
-La base d'ingrédients s'appuie sur des références publiques de données Skyrim et leur version française. Les recettes de cuisine listées correspondent aux tables vanilla/Hearthfire consultées.
-
-Pour une version Anniversary Edition, des recettes et ingrédients supplémentaires peuvent être ajoutés dans les fichiers JSON sans refaire l'interface.
+Les données sont séparées dans `data/` afin de pouvoir enrichir facilement la base sans modifier l'interface.

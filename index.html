@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111820">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Skyrim — Alchimie & Cuisine</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="rune">ᛉ</div>
+    <div><strong>SKYRIM</strong><span>ALCHIMIE • CUISINE</span></div>
+  </div>
+  <button id="themeBtn" class="icon-btn" aria-label="Changer le thème">☾</button>
+</header>
+
+<main id="app">
+  <section id="home" class="page active">
+    <div class="hero">
+      <p class="eyebrow">COMPAGNON DU NORD</p>
+      <h1>Ton grimoire<br><em>d'alchimiste</em></h1>
+      <p class="muted">Retrouve tes ingrédients, découvre les combinaisons et garde tes recettes de cuisine sous contrôle.</p>
+    </div>
+    <div class="stats">
+      <article><span>🌿</span><b id="statIng">0 / 0</b><small>ingrédients possédés</small></article>
+      <article><span>🥘</span><b id="statFood">0 / 0</b><small>recettes fabriquées</small></article>
+      <article><span>⚗️</span><b id="statMix">—</b><small>effet recherché</small></article>
+    </div>
+    <div class="section-title"><h2>Accès rapide</h2></div>
+    <div class="cards">
+      <button class="card" data-page="alchemy"><span>⚗️</span><b>Alchimie</b><small>Trouver une potion</small></button>
+      <button class="card" data-page="cooking"><span>🥘</span><b>Cuisine</b><small>Voir les recettes</small></button>
+      <button class="card" data-page="ingredients"><span>🌿</span><b>Ingrédients</b><small>Gérer les quantités</small></button>
+    </div>
+  </section>
+
+  <section id="alchemy" class="page">
+    <div class="page-head"><p class="eyebrow">TABLE D'ALCHIMIE</p><h1>Créer une potion</h1><p class="muted">Choisis 2 ou 3 ingrédients. Les effets communs apparaissent automatiquement.</p></div>
+    <div class="panel">
+      <div class="picker-grid">
+        <label>Ingrédient 1<select id="a1"></select></label>
+        <label>Ingrédient 2<select id="a2"></select></label>
+        <label>Ingrédient 3<select id="a3"><option value="">Aucun</option></select></label>
+      </div>
+      <button id="mixBtn" class="primary">⚗️ Analyser la combinaison</button>
+      <div id="mixResult" class="result empty">Choisis tes ingrédients pour commencer.</div>
+    </div>
+    <div class="panel">
+      <label class="search">🔎 <input id="effectSearch" placeholder="Rechercher un effet : Paralysie, Invisibilité…"></label>
+      <div id="effectList" class="effect-list"></div>
+    </div>
+  </section>
+
+  <section id="cooking" class="page">
+    <div class="page-head"><p class="eyebrow">FEU DE CAMP</p><h1>Cuisine</h1><p class="muted">Tes recettes de marmite, four et moulin.</p></div>
+    <div class="filters">
+      <input id="foodSearch" placeholder="🔎 Rechercher une recette…">
+      <select id="foodStation"><option value="">Toutes les stations</option><option>Marmite</option><option>Four</option><option>Moulin</option></select>
+      <select id="foodSource"><option value="">Tous les contenus</option><option>Skyrim</option><option>Hearthfire</option><option>Dragonborn</option><option>Anniversary Edition</option></select>
+    </div>
+    <div id="foodList" class="list"></div>
+  </section>
+
+  <section id="ingredients" class="page">
+    <div class="page-head"><p class="eyebrow">RÉSERVES</p><h1>Ingrédients</h1><p class="muted">Ajoute les quantités que tu as réellement dans ton inventaire.</p></div>
+    <div class="filters"><input id="ingSearch" placeholder="🔎 Rechercher un ingrédient…"><select id="ingSource"><option value="">Toutes les sources</option><option>Skyrim</option><option>Dawnguard</option><option>Hearthfire</option><option>Dragonborn</option><option>Anniversary Edition</option></select></div>
+    <div id="ingList" class="list"></div>
+  </section>
+
+  <section id="collection" class="page">
+    <div class="page-head"><p class="eyebrow">PROGRESSION</p><h1>Ma collection</h1></div>
+    <div class="progress-panel">
+      <div class="ring"><span id="pct">0%</span></div>
+      <div><b>Progression générale</b><p class="muted" id="progressText">0 élément suivi</p></div>
+    </div>
+    <div id="collectionStats" class="collection-grid"></div>
+    <button id="resetBtn" class="danger">Réinitialiser ma progression</button>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <button data-page="home" class="active"><span>⌂</span>Accueil</button>
+  <button data-page="alchemy"><span>⚗</span>Alchimie</button>
+  <button data-page="cooking"><span>🥘</span>Cuisine</button>
+  <button data-page="ingredients"><span>🌿</span>Ingrédients</button>
+  <button data-page="collection"><span>☑</span>Collection</button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
